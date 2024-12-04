@@ -54,7 +54,7 @@ function createPalette(partColor) {
         setTimeout(function() {
             saveProgress();
             document.querySelector('.score').textContent = 'Points: ' + localStorage.getItem('progress');
-            document.querySelector('.score').textContent
+            document.querySelector('.score').textContent 
             if (CheckScore()) {
                 saveProgress();
                 querySelector('.score').textContent = 'Points: ' + localStorage.getItem('progress');
@@ -65,6 +65,8 @@ function createPalette(partColor) {
         }, 300)
         
     });
+    return item;
+}
 
     function CheckScore() {
         let winScore = document.querySelector('.palette_sort').children;
@@ -79,12 +81,12 @@ function createPalette(partColor) {
 
     function saveProgress() {
         let score = Number(localStorage.getItem('progress')) ?? 0;
-    score++;
-    localStorage.setItem('progress', score);
+        score++;
+        localStorage.setItem('progress', score);
         
+        return score;
     }
-    return score;
-}
+
 let rgbaValues = getRGBAValues(hexToRGBA(randomColor(), 1.0));
 let paletteParticles = [];
 let alphaChannel = 0.0;
@@ -99,8 +101,8 @@ for (let i = 0; i < 5; i++) {
 }
     shuffle(paletteParticles);
     console.log(paletteParticles);
-    for (let j= paletteParticles.length-1; j >= 0; j--) {
+    for (let j= paletteParticles.length - 1; j >= 0; j--) {
         document.querySelector('.palette_unsort').appendChild(createPalette(paletteParticles[j]));
         document.querySelector('.score').textContent = 'Points: ' + Number(localStorage.getItem('progress')) ?? 0;
-}
+    }
 
